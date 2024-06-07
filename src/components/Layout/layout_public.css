@@ -1,0 +1,29 @@
+.footer-final{
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #11920f;
+  color: #ffffff;
+
+}
+.header {
+  padding: 1vw 0 ;
+  width: 100vw;
+  background-color: #11920f;
+  text-align: center;
+}
+.header>.header_nav a{
+ padding: 0 1vw;
+ text-decoration: none;
+ color: #ffffff;
+}
+.header>.header_nav a:hover{
+  padding: s1vw;
+  text-decoration: none;
+  color: #e2e2e2;
+ }
+  
+
+ 
