@@ -13,7 +13,7 @@ function App() {
                 <Routes>
                     <Route path='/*' element={<ProtectedRoutes><RoutersPrivate/></ProtectedRoutes >} />
                     <Route path="/" element={<LayoutPublic />}>
-                        <Route path='/home' element={<Home/>} />
+                        
                         <Route path='/about' element={<About/>} />
                         <Route path='/login' element={<Login/>} />
                     </Route>

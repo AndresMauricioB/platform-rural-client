@@ -4,13 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import { AuthProvider } from './contexts/AuthContext.jsx'
 import { ServerProvider } from './contexts/ServerContext.jsx'
+import { AuthFirebaseProvider } from './contexts/AuthFirebaseContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <AuthProvider>
-            <ServerProvider>
-                <App />
-            </ServerProvider>
-        </AuthProvider>  
+        <AuthFirebaseProvider>
+            <AuthProvider>
+                <ServerProvider>
+                    <App />
+                </ServerProvider>
+            </AuthProvider> 
+        </AuthFirebaseProvider>
     </React.StrictMode>,
 )

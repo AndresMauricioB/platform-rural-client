@@ -9,7 +9,7 @@ export default function RoutersPrivate() {
     return (
         <Routes>
             <Route path="/" element={<LayoutPrivate />}>
-               
+            <Route path='/home' element={<Home/>} />
                 <Route path='*' element={<Error/>} />
             </Route>
 

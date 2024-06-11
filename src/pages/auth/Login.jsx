@@ -1,40 +1,44 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-
+import React, { useEffect, useState } from 'react'
+import appFirebase from "../../env";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+const auth =getAuth(appFirebase);
 
 export default function () {
-    const navigate= useNavigate();
-    console.log(navigate);
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
 
-    const user={
-        email:'prueba@gmail.com',
-        password:'12345678'
-    }
+    const [regi,setRegi] = useState(false);
+    const [email, setEmail] = useState("");
+	const [pwd, setPwd] = useState("");
 
-    const handleSubmit=(e)=>{
+    useEffect(() => {
+        
+        console.log(auth);
+    }, []);
+
+    const funtAuth = async(e)=>{
         e.preventDefault();
-        if(user.email===email && user.password===password){
-            console.log('Entro');
-            localStorage.setItem('user', JSON.stringify(user.email));
-            navigate('/', {replace: true});
+        const email =e.target.email.value;
+        const password = e.target.password.value;
+        if(regi){
+            await createUserWithEmailAndPassword(auth,email,password);
         }else{
-            alert("correo o contraseña incorrectos");
+            try {
+                await signInWithEmailAndPassword(auth,email,password);
+            } catch (error) {
+                alert('Email or Password Fail');
+            }
         }
-    };
+    }
 
    
 
   return (
     <div>
-        <form onSubmit={handleSubmit}>
-            <label>Email</label>
-            <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-            <label>Password</label>
-            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
-            <button>Login</button>
+        <form onSubmit={funtAuth}> 
+            <input type="email" placeholder='Email' id='email' />
+            <input type="password" placeholder='Password' id='password' />
+            <button>{regi ? "Reguitrese" : "Inicie Sesion"}</button>
         </form>
+        <h4>{regi ? "Si ya tienes cuenta" : "No tienes cuenta"}<button onClick={()=>setRegi(!regi)}>{regi ? "Inicie Sesion" : "Reguitrese"}</button></h4>
     </div>
   )
 }
