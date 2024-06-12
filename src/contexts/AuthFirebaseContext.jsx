@@ -1,34 +1,53 @@
-import { createContext, useContext, useState } from "react";
-import appFirebase from "../env";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-const auth =getAuth(appFirebase);
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { auth, googleProvider } from "../env";
 
 const AuthFirebaseContext = createContext(undefined);
 
-export const AuthFirebaseProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, user => {
+        setCurrentUser(user);
+        setLoading(false);
+      });
+  
+      return unsubscribe;
+    }, []);
+  
+    const loginWithEmail = (email, password) => {
+      return signInWithEmailAndPassword(auth, email, password);
+    };
+  
+    const signupWithEmail = (email, password) => {
+      return createUserWithEmailAndPassword(auth, email, password);
+    };
 
-    const [user, setUser] = useState(null);
-
-    onAuthStateChanged(auth,(user)=>{
-        if(user){
-            console.log(user);
-            setUser(user)
-        }else{
-            setUser(null)
-        }
-    })
-
-    const values = {
-        user,
-    }
-
+    const loginWithGoogle = () => {
+        return signInWithPopup(auth, googleProvider);
+      };
+  
+    const logout = () => {
+      return signOut(auth);
+    };
+  
+    const value = {
+      currentUser,
+      loginWithEmail,
+      signupWithEmail,
+      logout,
+      loginWithGoogle
+    };
     return (
-        <AuthFirebaseContext.Provider
-            value={values}
-        >
-            {children}
-        </AuthFirebaseContext.Provider>
+      <AuthFirebaseContext.Provider value={value}>
+        {!loading && children}
+      </AuthFirebaseContext.Provider>
     );
 }
 
 export const useAuthFirebase = () => useContext(AuthFirebaseContext);
+
+
+

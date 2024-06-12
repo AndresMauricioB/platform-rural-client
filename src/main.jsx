@@ -2,18 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { AuthProvider } from './contexts/AuthContext.jsx'
+import { AuthProvider } from './contexts/AuthFirebaseContext.jsx'
 import { ServerProvider } from './contexts/ServerContext.jsx'
-import { AuthFirebaseProvider } from './contexts/AuthFirebaseContext.jsx'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <AuthFirebaseProvider>
-            <AuthProvider>
+        <AuthProvider>
                 <ServerProvider>
                     <App />
                 </ServerProvider>
-            </AuthProvider> 
-        </AuthFirebaseProvider>
+        </AuthProvider>
     </React.StrictMode>,
 )

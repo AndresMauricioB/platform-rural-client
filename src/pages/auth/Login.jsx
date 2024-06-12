@@ -1,44 +1,40 @@
+import './form-user.css';
 import React, { useEffect, useState } from 'react'
-import appFirebase from "../../env";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-const auth =getAuth(appFirebase);
+import { useAuthFirebase } from '../../contexts/AuthFirebaseContext';
 
-export default function () {
+export default function login() {
 
-    const [regi,setRegi] = useState(false);
     const [email, setEmail] = useState("");
 	const [pwd, setPwd] = useState("");
+    const { loginWithEmail, loginWithGoogle } = useAuthFirebase();
 
-    useEffect(() => {
-        
-        console.log(auth);
-    }, []);
-
-    const funtAuth = async(e)=>{
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const email =e.target.email.value;
-        const password = e.target.password.value;
-        if(regi){
-            await createUserWithEmailAndPassword(auth,email,password);
-        }else{
-            try {
-                await signInWithEmailAndPassword(auth,email,password);
-            } catch (error) {
-                alert('Email or Password Fail');
-            }
+        try {
+          await loginWithEmail(email, pwd);
+        } catch (error) {
+          console.error('Error logging in with email', error);
         }
-    }
+      };
 
-   
+      const handleGoogleLogin = async () => {
+        try {
+          await loginWithGoogle();
+        } catch (error) {
+          console.error('Error logging in with Google', error);
+        }
+      }; 
+      
 
   return (
-    <div>
-        <form onSubmit={funtAuth}> 
-            <input type="email" placeholder='Email' id='email' />
-            <input type="password" placeholder='Password' id='password' />
-            <button>{regi ? "Reguitrese" : "Inicie Sesion"}</button>
-        </form>
-        <h4>{regi ? "Si ya tienes cuenta" : "No tienes cuenta"}<button onClick={()=>setRegi(!regi)}>{regi ? "Inicie Sesion" : "Reguitrese"}</button></h4>
+    <div className='container-form-user'>
+        <form onSubmit={handleLogin} className='form-user'> 
+            <input type="email" placeholder='Email' id='email' alue={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="password" placeholder='Password' id='password' value={pwd} onChange={(e) => setPwd(e.target.value)} />
+            <button>Inicie Sesion</button>
+        </form> 
+        <button onClick={handleGoogleLogin}>Login with Google</button>  
+        
     </div>
   )
 }

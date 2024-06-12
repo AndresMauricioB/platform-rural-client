@@ -14,13 +14,9 @@ export default function LayoutPublic() {
             <NavLink to='/home'> Inicio</NavLink>
             <NavLink to='/about'> Quiénes somos</NavLink>
             <NavLink to='/login'> Inicio de sesión</NavLink>
-            <NavLink to='/login'> Registrarse</NavLink> 
+            <NavLink to='/register'> Registrarse</NavLink> 
         </nav>
     </header>
-
-    <div>
-        <h1>Public</h1>
-    </div>
 
     <Outlet/>
     
