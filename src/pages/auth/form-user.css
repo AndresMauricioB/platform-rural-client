@@ -1,8 +1,9 @@
 .container-form-user{
     display: flex;
     justify-content: center;
-    min-height: 80vh;
+    min-height: 60vh;
     align-items: center;
+    flex-direction: column;
 }
 .form-user{
     background-color: #11920f;
@@ -35,7 +36,32 @@
     background-color: #ef9c0099;
     color: #ffffff;
 }
+.btn-google {
+    padding: 1vw;
+    margin: 1vw;
+    width: 34vw;
+    border: none;
+    background-color: white;
+    color: #11920f;
+    border-radius: 8px;
+}
+.btn-google:hover {
+    background-color: rgba(255, 255, 255, 0.555);
+    color: #11920f;
+    cursor: pointer;
+}
 @media (max-width: 992px) {
+    .btn-google{
+        font-size: 5vw;
+        padding: 2vw;
+        margin: 2vw;
+        width: 90vw;
+        border: none;
+        background-color: white;
+        color: #11920f;
+        border-radius: 8px;
+    }
+  
     .form-user{
         width: 80vw;
         padding: 4vw;

@@ -1,11 +1,11 @@
 import './form-user.css';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useAuthFirebase } from '../../contexts/AuthFirebaseContext';
 
 export default function login() {
 
     const [email, setEmail] = useState("");
-	const [pwd, setPwd] = useState("");
+	  const [pwd, setPwd] = useState("");
     const { loginWithEmail, loginWithGoogle } = useAuthFirebase();
 
     const handleLogin = async (e) => {
@@ -33,7 +33,7 @@ export default function login() {
             <input type="password" placeholder='Password' id='password' value={pwd} onChange={(e) => setPwd(e.target.value)} />
             <button>Inicie Sesion</button>
         </form> 
-        <button onClick={handleGoogleLogin}>Login with Google</button>  
+        <button className='btn-google' onClick={handleGoogleLogin}>Iniciar sesión <i className="fa-brands fa-google"></i></button>  
         
     </div>
   )
