@@ -31,7 +31,7 @@
 .header__nav a {
   color: white;
   text-decoration: none;
-  padding: 2vw;
+  padding: 1vw;
   transition: background-color 0.3s;
 }
 

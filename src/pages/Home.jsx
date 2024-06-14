@@ -5,7 +5,10 @@ export default function Home() {
   const { currentUser, logout } = useAuthFirebase();
 
   useEffect(() => {
-    console.log(currentUser.accessToken);
+    if(currentUser){
+      console.log(currentUser.accessToken);
+    }
+    
   }, [])
   
 

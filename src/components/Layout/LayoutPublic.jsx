@@ -18,8 +18,10 @@ export default function LayoutPublic() {
             </div>
             
             <div className="header__menu-icon" onClick={toggleMenu}>
-                ☰
+                <p className={`header__menu-icon ${isOpen ? 'header__nav--open' : ''}`} > ☰ </p>
+                <p className={`header__menu-icon ${isOpen ? '' : 'header__nav--open'}`} > 🗙 </p>
             </div>
+          
             <nav className={`header__nav ${isOpen ? 'header__nav--open' : ''}`}>
                 <NavLink to='/home'>Inicio</NavLink>
                 <NavLink to='/about'>Quiénes somos</NavLink>
