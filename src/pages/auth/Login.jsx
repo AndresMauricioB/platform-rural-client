@@ -5,7 +5,7 @@ import { useAuthFirebase } from '../../contexts/AuthFirebaseContext';
 export default function login() {
 
     const [email, setEmail] = useState("");
-	  const [pwd, setPwd] = useState("");
+	const [pwd, setPwd] = useState("");
     const { loginWithEmail, loginWithGoogle } = useAuthFirebase();
 
     const handleLogin = async (e) => {

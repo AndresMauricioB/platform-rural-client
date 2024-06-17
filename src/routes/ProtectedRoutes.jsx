@@ -5,8 +5,7 @@ import { useAuthFirebase } from '../contexts/AuthFirebaseContext';
 
 export default function ProtectedRoutes({children}) {
     const { currentUser } = useAuthFirebase();
-   
-  
+
     if(currentUser){
         return children;
     }else{

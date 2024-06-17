@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import { useAuthFirebase } from '../contexts/AuthFirebaseContext';
 
@@ -6,9 +7,8 @@ export default function Home() {
 
   useEffect(() => {
     if(currentUser){
-      console.log(currentUser.accessToken);
-    }
-    
+      //console.log(currentUser.accessToken);
+    }  
   }, [])
   
 
