@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 .form-user{
-    background-color: #11920f;
+    background-color: var(--green);
     display: flex;
     flex-direction: column;
     width: 30vw;
@@ -17,7 +17,7 @@
     padding: 1vw;
     margin: 1vw 0;
     border: none;
-    background-color: #38a522;
+    background-color:var(--light-green);
     border-radius: 6px;
     color: #fff;
 }
@@ -25,7 +25,7 @@
     color: #fff;
 }
 .form-user button{
-    background-color: #ef9c00;
+    background-color: var(--yellow);
     color: #fff;
     padding: 1vw 2vw;
     border: none;
@@ -42,12 +42,12 @@
     width: 34vw;
     border: none;
     background-color: white;
-    color: #11920f;
+    color: var(--green);
     border-radius: 8px;
 }
 .btn-google:hover {
     background-color: rgba(255, 255, 255, 0.555);
-    color: #11920f;
+    color: var(--green);
     cursor: pointer;
 }
 @media (max-width: 992px) {
@@ -58,7 +58,7 @@
         width: 90vw;
         border: none;
         background-color: white;
-        color: #11920f;
+        color: var(--green);
         border-radius: 8px;
     }
   

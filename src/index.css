@@ -3,6 +3,9 @@
   line-height: 1.5;
   font-weight: 600;
   text-decoration: none;
+  --green: #2a7d28;
+  --light-green: #349931;
+  --yellow: #d58c03;
 }
 *{
   margin: 0;

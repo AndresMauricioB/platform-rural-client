@@ -4,8 +4,8 @@
   bottom: 0;
   display: flex;
   justify-content: center;
-  background-color: #11920f;
-  color: #ffffff;
+  background-color: var(--green);
+  color: white;
 }
 
  /* Estilos generales para el header y logo */
@@ -14,7 +14,7 @@
   text-align: center;
   justify-content: space-around;
   align-items: center;
-  background-color: #11920f;
+  background-color: var(--green);
   color: white;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .header__nav a:hover {
-  color: #ef9c00;
+  color: var(--yellow);
 }
 
 /* Estilos para el icono del menú */
@@ -62,7 +62,7 @@
       gap: 10px;
       width: 100%;
       text-align: center;
-      background-color: #11920f;
+      background-color: var(--green);
   }
 
   .header__nav--open {
