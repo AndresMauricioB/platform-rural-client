@@ -15,7 +15,7 @@ export default function login() {
         e.preventDefault();
         try {
           await loginWithEmail(email, pwd);
-          navigate('/home');
+          navigate('/dashboard');
         } catch (error) {
          // console.error('Error logging in with email', error);
           setError("Error logging in with email");

@@ -63,9 +63,12 @@
       width: 100%;
       text-align: center;
       background-color: var(--green);
+      
   }
 
   .header__nav--open {
+    
+      transition: 3s all;
       display: flex;
       position: absolute;
       top: 9vh;
