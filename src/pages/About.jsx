@@ -12,13 +12,13 @@ export default function About() {
    if(currentUser){
     const idToken = currentUser.accessToken;
     setToken(idToken);
-    console.log(data);
+    console.log(token);
    }
   }, [])
 
   const fetchProtectedData = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/protected-data', {
+      const response = await axios.get('http://127.0.0.1:8000/api/person/create', {
         headers: {
           withCredentials: true,
           Authorization: `Bearer ${token}`
