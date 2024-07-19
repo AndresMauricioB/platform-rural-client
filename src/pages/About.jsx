@@ -33,6 +33,7 @@ export default function About() {
 
   return (
     <div>
+     
       {token && <button onClick={fetchProtectedData}>Fetch Protected Data</button>}
       {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
     </div>

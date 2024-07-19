@@ -1,11 +1,22 @@
 .footer-final{
   width: 100vw;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   justify-content: center;
   background-color: var(--green);
   color: white;
+}
+.btn-logout{
+  padding: 0.8vw;
+    border-radius: 10px;
+    border: none;
+    transition: 0.5s all;
+}
+.btn-logout:hover{
+  cursor: pointer;
+  background-color: var(--light-green);
+  color: #fff;
 }
 
  /* Estilos generales para el header y logo */

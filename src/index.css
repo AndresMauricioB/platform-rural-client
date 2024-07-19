@@ -22,6 +22,7 @@
   background-color: #d3d3d3;
   display: flex;
   padding: 2vw;
+  justify-content: space-between;
   margin: 1vw;
 }
 body{

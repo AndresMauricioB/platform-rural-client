@@ -6,6 +6,7 @@ import LayoutPublic from './components/Layout/LayoutPublic'
 import About from './pages/About'
 import Register from './pages/auth/Register'
 import Home from './pages/Home'
+import Profile from './pages/dashboard/Profile'
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
                         <Route path='/about' element={<About/>} />
                         <Route path='/login' element={<Login/>} />
                         <Route path='/register' element={<Register/>} />
+                        
                     </Route>
                 </Routes>
         </BrowserRouter>

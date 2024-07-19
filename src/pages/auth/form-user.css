@@ -13,7 +13,7 @@
     padding: 2vw;
     border-radius: 8px;
 }
-.form-user input{
+.form-user input, .form-user textarea{
     padding: 1vw;
     margin: 1vw 0;
     border: none;
